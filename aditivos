@@ -1,1 +1,221 @@
-[{"contractNumber":"195.2019","processNumber":"040-16333.2023","company":"CENTRO DE NEFROLOGIA DO MARANHÃO","alteracao":"5° TERMO ADITIVO","tipo":"REPASSE","assinatura":"10/7/2023","diasUteis":"5° dia do mês subsequente","termino":"5/8/2023","situacao":"CADASTRADO/ENVIADO","valor":"R$ 18.321.682,44","idContratacao":"CR52017FMS","sincGiapAnexos":"OK","inicioVigencia":"10/7/2023","fimVigencia":"10/07/2024"},{"contractNumber":"196.2020","processNumber":"040-8034.2023","company":"ÁTRIOS COMÉRCIO, SERVIÇOS E MANUTENÇÃO LTDA","alteracao":"3º TERMO ADITIVO","tipo":"VIGÊNCIA","assinatura":"14/6/2023","diasUteis":"5° dia do mês subsequente","termino":"5/7/2023","situacao":"CADASTRADO/ENVIADO","valor":"","idContratacao":"PE172020FMS","sincGiapAnexos":"OK","inicioVigencia":"3/7/2023","fimVigencia":"3/7/2024"},{"contractNumber":"218/2019","processNumber":"16334/2023","company":"CLÍNICA DE RIM E HIPERTENSÃO ARTERIAL LTDA","alteracao":"5° TERMO ADITIVO","tipo":"VIGÊNCIA/VALOR","assinatura":"4/8/2023","diasUteis":"5° dia do mês subsequente","termino":"5/9/2023","situacao":"CADASTRADO/ENVIADO","valor":"R$ 6.848.362,08","idContratacao":"CR52017FMS","sincGiapAnexos":"OK","inicioVigencia":"7/8/2023","fimVigencia":"6/8/2024"},{"contractNumber":"227.2020","processNumber":"040-10581.2023","company":"OFTALMO DAY","alteracao":"3º TERMO ADITIVO","tipo":"VALOR","assinatura":"24/5/2023","diasUteis":"5° dia do mês subsequente","termino":"5/6/2023","situacao":"CADASTRADO/ENVIADO","valor":"R$ 979.106,94","idContratacao":"CR0032019FMS","sincGiapAnexos":"OK"},{"contractNumber":"228.2020","processNumber":"040-10578.2023","company":"UDI OFTALMO- INSTITUTO MARAMHENSE DE OFTALMOLOGIA LTDA","alteracao":"3° TERMO ADITIVO","tipo":"VALOR","assinatura":"31/5/2023","diasUteis":"5° dia do mês subsequente","termino":"5/6/2023","situacao":"CADASTRADO/ENVIADO","valor":"R$ 406.456,23","idContratacao":"CR0032019FMS","sincGiapAnexos":"OK"}]
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modalidades de Alterações Contratuais 2024</title>
+  <!-- Adicione links para Bootstrap e estilos personalizados -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Estilos personalizados para a tabela */
+    #alterationsTableBody tr:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .category-cell {
+      font-weight: bold;
+    }
+
+    /* Estilos para bordas da tabela */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Modalidades de Alterações Contratuais 2024</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <div id="alterationsPieChart" style="height: 400px;"></div>
+      </div>
+      <div class="col-md-6">
+        <div id="alterationsBarChart" style="height: 400px;"></div>
+      </div>
+    </div>
+    <div class="mt-3">
+      <h3>Contagem de Alterações por Categoria</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Categoria</th>
+            <th>Quantidade</th>
+          </tr>
+        </thead>
+        <tbody id="alterationsTableBody">
+          <!-- Aqui será preenchido dinamicamente com os dados -->
+        </tbody>
+      </table>
+    </div>
+    <input type="file" id="fileInput" class="mt-3">
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      let alterationsData = []; // Armazenará os dados do arquivo JSON
+
+      $('#fileInput').change(function (e) {
+        const file = e.target.files[0];
+
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (event) {
+            const content = event.target.result;
+            try {
+              alterationsData = JSON.parse(content);
+              renderAlterationsChart();
+            } catch (error) {
+              console.error('Erro ao analisar o arquivo JSON:', error);
+              alert('Erro ao carregar o arquivo JSON. Certifique-se de que o arquivo esteja em formato correto.');
+            }
+          };
+          reader.readAsText(file);
+        } else {
+          alert('Por favor, selecione um arquivo JSON para carregar.');
+        }
+      });
+
+      function renderAlterationsChart() {
+        const categoriesData = alterationsData.map(alteration => alteration.tipo);
+        const groupedData = groupDataByCategory(categoriesData);
+
+        updateCharts(groupedData.counts, groupedData.descriptions);
+        updateTable(groupedData.counts, groupedData.descriptions);
+      }
+
+      function groupDataByCategory(data) {
+        const categories = {
+          'VIGÊNCIA': 'Alteração de Vigência',
+          'VALOR': 'Alteração de Valor',
+          'VIGÊNCIA/VALOR': 'Alteração de Vigência e Valor',
+          'REPASSE': 'Alteração de Repasse'
+        };
+        const counts = {
+          'VIGÊNCIA': 0,
+          'VALOR': 0,
+          'VIGÊNCIA/VALOR': 0,
+          'REPASSE': 0
+        };
+
+        data.forEach(category => {
+          if (counts.hasOwnProperty(category)) {
+            counts[category]++;
+          }
+        });
+
+        return {
+          counts,
+          descriptions: categories
+        };
+      }
+
+      function updateCharts(counts, descriptions) {
+        // Cores correspondentes aos gráficos
+        const colors = ['#FFA500', '#800080', '#90EE90', '#ADD8E6'];
+
+        // Atualize o gráfico de pizza (pie chart)
+        const pieOptions = {
+          series: Object.values(counts),
+          labels: Object.keys(counts).map(key => `${key} = ${descriptions[key]}`),
+          chart: {
+            type: 'pie',
+          },
+          colors: colors,
+          responsive: [{
+            breakpoint: 480,
+            options: {
+              chart: {
+                width: 200
+              },
+              legend: {
+                position: 'bottom'
+              }
+            }
+          }]
+        };
+
+        const pieChart = new ApexCharts(document.querySelector("#alterationsPieChart"), pieOptions);
+        pieChart.render();
+
+        // Atualize o gráfico de barras (bar chart)
+        const barOptions = {
+          series: [{
+            name: 'Alterações',
+            data: Object.values(counts)
+          }],
+          chart: {
+            type: 'bar',
+            height: 350,
+            toolbar: {
+              show: false
+            }
+          },
+          plotOptions: {
+            bar: {
+              horizontal: false,
+              columnWidth: '55%',
+              endingShape: 'rounded',
+              distributed: true, // Distribui as barras de forma igual
+            },
+          },
+          dataLabels: {
+            enabled: false
+          },
+          colors: colors,
+          xaxis: {
+            categories: Object.keys(descriptions).map(key => `${key} = ${descriptions[key]}`),
+            labels: {
+              style: {
+                colors: colors, // Cores das labels iguais às cores das barras
+                fontSize: '12px',
+              }
+            }
+          },
+          yaxis: {
+            title: {
+              text: 'Quantidade'
+            }
+          },
+          fill: {
+            opacity: 1
+          }
+        };
+
+        const barChart = new ApexCharts(document.querySelector("#alterationsBarChart"), barOptions);
+        barChart.render();
+      }
+
+      function updateTable(counts, descriptions) {
+        const tableBody = document.getElementById('alterationsTableBody');
+        tableBody.innerHTML = '';
+ // Criar as linhas da tabela com base nas contagens
+        Object.keys(counts).forEach(category => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td class="category-cell">${descriptions[category]}</td>
+            <td>${counts[category]}</td>
+          `;
+          tableBody.appendChild(row);
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
