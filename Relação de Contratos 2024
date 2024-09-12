@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relação de Contratos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #343a40;
+        }
+        .table-container {
+            margin-top: 30px;
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow-x: auto;
+            white-space: nowrap;
+            position: relative;
+        }
+        table {
+            width: 100%;
+            border-spacing: 0;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        td {
+            text-align: justify;
+            vertical-align: middle;
+        }
+        td:nth-child(17) {
+            width: 250px;
+            max-width: 250px;
+            word-wrap: break-word;
+            white-space: normal;
+            padding: 10px;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover td {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        .btn-scroll {
+            position: fixed; /* Setas fixas na tela */
+            top: 50%; /* Alinhamento vertical */
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 1000; /* Garantir que as setas fiquem na frente de outros elementos */
+        }
+        .scroll-left {
+            left: 10px; /* Setas à esquerda */
+        }
+        .scroll-right {
+            right: 10px; /* Setas à direita */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-file-contract"></i> Relação de Contratos</h1>
+
+        <div class="search-container">
+            <button class="btn-scroll scroll-left" onclick="scrollTable('left')"><i class="fas fa-arrow-left"></i></button>
+            <button class="btn-scroll scroll-right" onclick="scrollTable('right')"><i class="fas fa-arrow-right"></i></button>
+            <div class="row">
+                <div class="col-3">
+                    <input class="form-control mb-2" type="text" id="searchNumContrato" placeholder="Num. Contrato" onkeyup="filterTable()">
+                </div>
+                <div class="col-3">
+                    <input class="form-control mb-2" type="text" id="searchAnoContrato" placeholder="Ano Contrato" onkeyup="filterTable()">
+                </div>
+                <div class="col-3">
+                    <input class="form-control mb-2" type="text" id="searchContratoTC" placeholder="Contrato TC" onkeyup="filterTable()">
+                </div>
+                <div class="col-3">
+                    <input class="form-control mb-2" type="text" id="searchCredor" placeholder="Credor" onkeyup="filterTable()">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <input class="form-control mb-2" type="text" id="searchPessoa" placeholder="Pessoa" onkeyup="filterTable()">
+                </div>
+                <div class="col-3">
+                    <input class="form-control mb-2" type="text" id="searchNumProcesso" placeholder="Num. Processo" onkeyup="filterTable()">
+                </div>
+                <div class="col-3">
+                    <input class="form-control mb-2" type="text" id="searchAnoProcesso" placeholder="Ano Processo" onkeyup="filterTable()">
+                </div>
+                <div class="col-3">
+                    <input class="form-control mb-2" type="text" id="searchNumProcessoAdm" placeholder="Num. Processo Adm." onkeyup="filterTable()">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <input class="form-control mb-2" type="text" id="searchAnoProcessoAdm" placeholder="Ano Processo Adm." onkeyup="filterTable()">
+                </div>
+            </div>
+        </div>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        // Carregar os dados automaticamente ao abrir
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('https://raw.githubusercontent.com/Taskymaster/meu-repositorio-json/main/relacao_contratos_simples%20(10).html')
+                .then(response => response.text())
+                .then(data => {
+                    const output = document.getElementById('output');
+                    let tableContainer = document.createElement('div');
+                    tableContainer.classList.add('table-container');
+
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = data;
+                    const rows = tempDiv.querySelectorAll('tr');
+
+                    rows.forEach(row => {
+                        const numContratoCell = row.querySelector('td:first-child');
+                        if (numContratoCell) {
+                            const numContratoValue = parseInt(numContratoCell.textContent.trim(), 10);
+                            if (isNaN(numContratoValue) || numContratoValue < 1 || numContratoValue > 900) {
+                                row.style.display = 'none';
+                            }
+                        }
+                    });
+
+                    // Adaptação para exibir o link como ícone clicável
+                    const downloadCells = tempDiv.querySelectorAll('td:nth-child(19)');
+                    downloadCells.forEach(cell => {
+                        const link = cell.textContent.trim();
+                        if (link) {
+                            cell.innerHTML = `<a href="${link}" target="_blank"><i class="fas fa-link"></i></a>`;
+                        }
+                    });
+
+                    tableContainer.innerHTML = tempDiv.innerHTML;
+                    output.appendChild(tableContainer);
+                })
+                .catch(error => console.error('Erro ao carregar os dados:', error));
+        });
+
+        function filterTable() {
+            const numContratoInput = document.getElementById('searchNumContrato').value.toUpperCase();
+            const anoContratoInput = document.getElementById('searchAnoContrato').value.toUpperCase();
+            const contratoTCInput = document.getElementById('searchContratoTC').value.toUpperCase();
+            const credorInput = document.getElementById('searchCredor').value.toUpperCase();
+            const pessoaInput = document.getElementById('searchPessoa').value.toUpperCase();
+            const numProcessoInput = document.getElementById('searchNumProcesso').value.toUpperCase();
+            const anoProcessoInput = document.getElementById('searchAnoProcesso').value.toUpperCase();
+            const numProcessoAdmInput = document.getElementById('searchNumProcessoAdm').value.toUpperCase();
+            const anoProcessoAdmInput = document.getElementById('searchAnoProcessoAdm').value.toUpperCase();
+
+            const table = document.querySelector('.table-container table');
+            const rows = table.getElementsByTagName('tr');
+
+            let isEmptyFilter = 
+                numContratoInput === '' &&
+                anoContratoInput === '' &&
+                contratoTCInput === '' &&
+                credorInput === '' &&
+                pessoaInput === '' &&
+                numProcessoInput === '' &&
+                anoProcessoInput === '' &&
+                numProcessoAdmInput === '' &&
+                anoProcessoAdmInput === '';
+
+            for (let i = 1; i < rows.length; i++) {
+                let numContrato = rows[i].getElementsByTagName('td')[0];
+                let anoContrato = rows[i].getElementsByTagName('td')[1];
+                let contratoTC = rows[i].getElementsByTagName('td')[2];
+                let credor = rows[i].getElementsByTagName('td')[3];
+                let pessoa = rows[i].getElementsByTagName('td')[4];
+                let numProcesso = rows[i].getElementsByTagName('td')[6];
+                let anoProcesso = rows[i].getElementsByTagName('td')[7];
+                let numProcessoAdm = rows[i].getElementsByTagName('td')[8];
+                let anoProcessoAdm = rows[i].getElementsByTagName('td')[9];
+
+                if (numContrato && anoContrato && contratoTC && credor && pessoa && numProcesso && anoProcesso && numProcessoAdm && anoProcessoAdm) {
+                    let numContratoText = numContrato.textContent || numContrato.innerText;
+                    let anoContratoText = anoContrato.textContent || anoContrato.innerText;
+                    let contratoTCText = contratoTC.textContent || contratoTC.innerText;
+                    let credorText = credor.textContent || credor.innerText;
+                    let pessoaText = pessoa.textContent || pessoa.innerText;
+                    let numProcessoText = numProcesso.textContent || numProcesso.innerText;
+                    let anoProcessoText = anoProcesso.textContent || anoProcesso.innerText;
+                    let numProcessoAdmText = numProcessoAdm.textContent || numProcessoAdm.innerText;
+                    let anoProcessoAdmText = anoProcessoAdm.textContent || anoProcessoAdm.innerText;
+
+                    if (isEmptyFilter || (
+                        (numContratoInput === '' || numContratoText.toUpperCase().indexOf(numContratoInput) > -1) &&
+                        (anoContratoInput === '' || anoContratoText.toUpperCase().indexOf(anoContratoInput) > -1) &&
+                        (contratoTCInput === '' || contratoTCText.toUpperCase().indexOf(contratoTCInput) > -1) &&
+                        (credorInput === '' || credorText.toUpperCase().indexOf(credorInput) > -1) &&
+                        (pessoaInput === '' || pessoaText.toUpperCase().indexOf(pessoaInput) > -1) &&
+                        (numProcessoInput === '' || numProcessoText.toUpperCase().indexOf(numProcessoInput) > -1) &&
+                        (anoProcessoInput === '' || anoProcessoText.toUpperCase().indexOf(anoProcessoInput) > -1) &&
+                        (numProcessoAdmInput === '' || numProcessoAdmText.toUpperCase().indexOf(numProcessoAdmInput) > -1) &&
+                        (anoProcessoAdmInput === '' || anoProcessoAdmText.toUpperCase().indexOf(anoProcessoAdmInput) > -1)
+                    )) {
+                        rows[i].style.display = '';
+                    } else {
+                        rows[i].style.display = 'none';
+                    }
+                }
+            }
+        }
+
+        function scrollTable(direction) {
+            const tableContainer = document.querySelector('.table-container');
+            if (direction === 'right') {
+                tableContainer.scrollLeft = tableContainer.scrollWidth;
+            } else if (direction === 'left') {
+                tableContainer.scrollLeft = 0;
+            }
+        }
+    </script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
