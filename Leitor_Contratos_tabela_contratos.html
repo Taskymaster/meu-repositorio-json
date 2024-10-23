@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relação de Contratos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #343a40;
+        }
+
+        .table-container {
+            margin-top: 30px;
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: auto;
+            max-height: 500px;
+            position: relative;
+        }
+
+        .search-bars {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            flex: 1 1 200px;
+        }
+
+        .link-icon {
+            font-size: 18px;
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        .link-icon:hover {
+            color: #0056b3;
+        }
+
+        .btn-custom {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            font-size: 14px;
+            margin-top: 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            padding: 10px 20px;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos para melhorar a tabela */
+        table {
+            width: 100%;
+            margin-bottom: 1rem;
+            color: #212529;
+        }
+
+        th {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        td {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        /* Exceções de centralização para FISCAL, OBJETO (RESUMO) e centralização para DIAS PARA EXPIRAR */
+        td:nth-child(4),
+        td:nth-child(7) {
+            text-align: left !important;
+        }
+
+        td:nth-child(9) {
+            text-align: center !important;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover td {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        /* Responsividade para dispositivos menores */
+        @media (max-width: 767.98px) {
+            .search-bars {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1><i class="fas fa-file-upload"></i> Relação de Contratos</h1>
+
+        <!-- Barras de Pesquisa -->
+        <div id="searchBars" class="search-bars" style="display: none;">
+            <input type="text" id="searchContrato" class="form-control search-bar" placeholder="Pesquisar Contrato">
+            <input type="text" id="searchTipo" class="form-control search-bar" placeholder="Pesquisar Tipo">
+            <input type="text" id="searchAreaResponsavel" class="form-control search-bar" placeholder="Pesquisar Área Responsável">
+            <input type="text" id="searchStatus" class="form-control search-bar" placeholder="Pesquisar Status">
+        </div>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        // URL do arquivo HTML a ser carregado automaticamente
+        const urlToFetch = 'https://raw.githubusercontent.com/Taskymaster/semus/main/tabela_contratos%20(4).html';
+
+        // Função para carregar a tabela a partir da URL
+        function loadTableFromURL(url) {
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    processTable(data);
+                })
+                .catch(error => {
+                    const output = document.getElementById('output');
+                    output.innerHTML = `<p class="text-danger">Erro ao carregar a tabela: ${error.message}</p>`;
+                });
+        }
+
+        // Função para processar e exibir a tabela
+        function processTable(htmlContent) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlContent, 'text/html');
+
+            // Selecionar a tabela no arquivo HTML carregado
+            const loadedTable = doc.querySelector('table');
+            const output = document.getElementById('output');
+            output.innerHTML = '';
+
+            if (!loadedTable) {
+                output.innerHTML = '<p class="text-warning">Nenhuma tabela encontrada no arquivo carregado.</p>';
+                return;
+            }
+
+            // Remover a coluna "Ações" se existir
+            const actionColumnIndex = Array.from(loadedTable.querySelectorAll('th')).findIndex(th => th.textContent.trim().toLowerCase() === 'ações');
+            if (actionColumnIndex !== -1) {
+                loadedTable.querySelectorAll('tr').forEach(row => {
+                    if (row.children.length > actionColumnIndex) {
+                        row.deleteCell(actionColumnIndex);
+                    }
+                });
+            }
+
+            // Reordenação das Colunas
+            const desiredOrder = [
+                "contrato",
+                "contrato tc",
+                "n° processo contratação",
+                "pessoa",
+                "credor",
+                "objeto (resumo)",
+                "tipo",
+                "área responsávél",
+                "fiscal",
+                "ação",
+                "natureza de despesa",
+                "fonte de recurso",
+                "início de vigência",
+                "final de vigência",
+                "duração (meses)",
+                "dias para expirar",
+                "status",
+                "valor do contrato",
+                "estimativa mensal",
+                "valor empenhado",
+                "empenho",
+                "valor pago",
+                "saldo financeiro",
+                "saldo de execução",
+                "rap",
+                "valor executado ano anterior",
+                "valor global do contrato",
+                "janeiro",
+                "fevereiro",
+                "março",
+                "abril",
+                "maio",
+                "junho",
+                "julho",
+                "agosto",
+                "setembro",
+                "outubro",
+                "novembro",
+                "dezembro",
+                "periodo empenhado (meses)",
+                "cobertura necessária",
+                "ficha"
+            ];
+
+            // Função para obter o índice das colunas atuais
+            function getColumnIndices(table, desiredOrder) {
+                const headers = Array.from(table.querySelectorAll('th')).map(th => th.textContent.trim().toLowerCase());
+                const indices = desiredOrder.map(col => headers.indexOf(col));
+                return indices;
+            }
+
+            const columnIndices = getColumnIndices(loadedTable, desiredOrder);
+
+            // Reordenar as colunas se necessário
+            if (columnIndices.some(index => index !== -1)) {
+                loadedTable.querySelectorAll('tr').forEach(row => {
+                    const cells = Array.from(row.children);
+                    const reorderedCells = [];
+
+                    columnIndices.forEach(index => {
+                        if (index !== -1 && cells[index]) {
+                            reorderedCells.push(cells[index].cloneNode(true));
+                        }
+                    });
+
+                    // Limpar a linha e adicionar as células reordenadas
+                    row.innerHTML = '';
+                    reorderedCells.forEach(cell => row.appendChild(cell));
+                });
+            }
+
+            // Renomear as colunas conforme solicitado
+            const headers = loadedTable.querySelectorAll('th');
+            headers.forEach(th => {
+                const headerText = th.textContent.trim().toLowerCase();
+                if (headerText === 'cobertura necessária') {
+                    th.textContent = 'COBERTURA NECESSÁRIA (EXERCÍCIO)';
+                }
+                if (headerText === 'ficha') {
+                    th.textContent = 'RELATÓRIO EXECUÇÃO CONTRATO';
+                }
+            });
+
+            // Adicionar classes Bootstrap à tabela
+            loadedTable.classList.add('table', 'table-striped', 'table-hover', 'table-bordered');
+
+            // Criar a estrutura da tabela para exibir na página
+            let tableContainer = document.createElement('div');
+            tableContainer.classList.add('table-container');
+            tableContainer.appendChild(loadedTable);
+
+            // Adicionar ao output
+            output.appendChild(tableContainer);
+
+            // Exibir as barras de pesquisa
+            document.getElementById('searchBars').style.display = 'flex';
+
+            // Atualizar os placeholders das barras de pesquisa para refletir os novos nomes
+            document.getElementById('searchContrato').placeholder = 'Pesquisar Contrato';
+            document.getElementById('searchTipo').placeholder = 'Pesquisar Tipo';
+            document.getElementById('searchAreaResponsavel').placeholder = 'Pesquisar Área Responsável';
+            document.getElementById('searchStatus').placeholder = 'Pesquisar Status';
+
+            // Adicionar funcionalidade às barras de pesquisa
+            document.getElementById('searchContrato').addEventListener('input', () => filterTable(loadedTable, 'contrato', document.getElementById('searchContrato').value));
+            document.getElementById('searchTipo').addEventListener('input', () => filterTable(loadedTable, 'tipo', document.getElementById('searchTipo').value));
+            document.getElementById('searchAreaResponsavel').addEventListener('input', () => filterTable(loadedTable, 'área responsávél', document.getElementById('searchAreaResponsavel').value));
+            document.getElementById('searchStatus').addEventListener('input', () => filterTable(loadedTable, 'status', document.getElementById('searchStatus').value));
+
+            // Restaurar a funcionalidade do ícone de link para a coluna "RELATÓRIO EXECUÇÃO CONTRATO"
+            const rows = loadedTable.querySelectorAll('tr');
+            let headerIndex = -1;
+
+            // Encontrar o índice da coluna "RELATÓRIO EXECUÇÃO CONTRATO"
+            rows.forEach((row, rowIndex) => {
+                const cells = row.querySelectorAll('th, td');
+                if (rowIndex === 0) {
+                    cells.forEach((cell, cellIndex) => {
+                        if (cell.innerText.trim().toLowerCase() === 'relatório execução contrato') {
+                            headerIndex = cellIndex;
+                        }
+                    });
+                } else if (headerIndex !== -1 && cells[headerIndex]) {
+                    const cell = cells[headerIndex];
+                    const linkText = cell.innerText.trim();
+
+                    // Verificar se a célula contém um link e substituir pelo ícone
+                    if (linkText.startsWith('http')) {
+                        const icon = document.createElement('i');
+                        icon.classList.add('fas', 'fa-link', 'link-icon');
+                        icon.onclick = () => {
+                            window.open(linkText, '_blank');
+                        };
+
+                        // Substituir o texto pelo ícone
+                        cell.innerHTML = '';
+                        cell.appendChild(icon);
+                    }
+                }
+            });
+
+            // Adicionar cores e estilos ao Status
+            let statusColumnIndex = -1;
+            const headerCells = loadedTable.querySelectorAll('th');
+            headerCells.forEach((th, index) => {
+                if (th.textContent.trim().toLowerCase() === 'status') {
+                    statusColumnIndex = index;
+                }
+            });
+
+            if (statusColumnIndex !== -1) {
+                rows.forEach((row, rowIndex) => {
+                    if (rowIndex === 0) return; // Ignorar o cabeçalho
+                    const cells = row.querySelectorAll('td');
+                    if (cells[statusColumnIndex]) {
+                        const cell = cells[statusColumnIndex];
+                        const cellText = cell.textContent.trim().toLowerCase();
+                        if (cellText === 'vigente') {
+                            cell.style.color = 'green';
+                            cell.style.fontWeight = 'bold';
+                        } else if (cellText === 'expirado') {
+                            cell.style.color = 'red';
+                        }
+                    }
+                });
+            }
+        }
+
+        // Função para filtrar a tabela com base nas buscas
+        function filterTable(table, columnName, searchValue) {
+            const rows = table.querySelectorAll('tr');
+            let columnIndex = -1;
+
+            // Encontrar o índice da coluna
+            rows[0].querySelectorAll('th').forEach((th, index) => {
+                if (th.textContent.trim().toLowerCase() === columnName.toLowerCase()) {
+                    columnIndex = index;
+                }
+            });
+
+            if (columnIndex === -1) return;
+
+            // Filtrar as linhas da tabela
+            rows.forEach((row, rowIndex) => {
+                if (rowIndex === 0) return; // Ignorar o cabeçalho
+                const cells = row.querySelectorAll('td');
+                if (cells[columnIndex]) {
+                    const cellText = cells[columnIndex].textContent.trim().toLowerCase();
+                    if (cellText.includes(searchValue.trim().toLowerCase())) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Carregar a tabela automaticamente quando a página for carregada
+        document.addEventListener('DOMContentLoaded', () => {
+            loadTableFromURL(urlToFetch);
+        });
+    </script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
