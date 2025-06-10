@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "geradoEm": "2025-06-09T17:34:14.813Z",
+    "geradoEm": "2025-06-10T11:50:47.677Z",
     "tipoMesclagem": "A + B + C (Empenhos com Usuário e Contrato)",
-    "totalRegistros": 4863,
+    "totalRegistros": 4909,
     "colunas": [
       "OP",
       "Operação",
@@ -30901,7 +30901,7 @@
       "Cod Pessoa": "130842",
       "Contrato": "/",
       "Vlr Liquidado": "25.268,10",
-      "Número do Processo": "1590101724",
+      "Número do Processo": "1590101024",
       "Ano Processo": "2024",
       "Nome Pessoa": "MSI COMÉRCIO DE MAT E EQUIP. HOSPITALARES LTDA",
       "Usuário": "ARISILVA"
@@ -30914,7 +30914,7 @@
       "Cod Pessoa": "130842",
       "Contrato": "/",
       "Vlr Liquidado": "25.268,10",
-      "Número do Processo": "1590101724",
+      "Número do Processo": "1590101024",
       "Ano Processo": "2024",
       "Nome Pessoa": "MSI COMÉRCIO DE MAT E EQUIP. HOSPITALARES LTDA",
       "Usuário": "ARISILVA"
@@ -30927,7 +30927,7 @@
       "Cod Pessoa": "130842",
       "Contrato": "/",
       "Vlr Liquidado": "25.268,10",
-      "Número do Processo": "1590101724",
+      "Número do Processo": "1590101024",
       "Ano Processo": "2024",
       "Nome Pessoa": "MSI COMÉRCIO DE MAT E EQUIP. HOSPITALARES LTDA",
       "Usuário": "ARISILVA"
@@ -30940,7 +30940,7 @@
       "Cod Pessoa": "130842",
       "Contrato": "/",
       "Vlr Liquidado": "25.268,10",
-      "Número do Processo": "1590101724",
+      "Número do Processo": "1590101024",
       "Ano Processo": "2024",
       "Nome Pessoa": "MSI COMÉRCIO DE MAT E EQUIP. HOSPITALARES LTDA",
       "Usuário": "ARISILVA"
@@ -58753,6 +58753,19 @@
       "Usuário": "ARISILVA"
     },
     {
+      "OP": "3364",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
+      "Valor": "115.500,00",
+      "Cod Pessoa": "136684",
+      "Contrato": "/",
+      "Vlr Liquidado": "115.500,00",
+      "Número do Processo": "15901014414",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "INSTITUTO AMOR PELA VIDA - IAPV",
+      "Usuário": "ARISILVA"
+    },
+    {
       "OP": "3373",
       "Operação": "Elaborada",
       "Data": "28/05/2025",
@@ -60430,6 +60443,19 @@
       "Usuário": "FCCPINHEIRO"
     },
     {
+      "OP": "3610",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
+      "Valor": "57.448,90",
+      "Cod Pessoa": "105081",
+      "Contrato": "/",
+      "Vlr Liquidado": "57.448,90",
+      "Número do Processo": "15901009547",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "CIASAUDE COM.  REP. E SERVIÇOS  LTDA",
+      "Usuário": "FCCPINHEIRO"
+    },
+    {
       "OP": "3613",
       "Operação": "Elaborada",
       "Data": "02/06/2025",
@@ -60742,6 +60768,19 @@
       "Usuário": "LSMENDES"
     },
     {
+      "OP": "3655",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
+      "Valor": "54.916,54",
+      "Cod Pessoa": "105081",
+      "Contrato": "/",
+      "Vlr Liquidado": "54.916,54",
+      "Número do Processo": "15901006125",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "CIASAUDE COM.  REP. E SERVIÇOS  LTDA",
+      "Usuário": "LSMENDES"
+    },
+    {
       "OP": "3659",
       "Operação": "Elaborada",
       "Data": "03/06/2025",
@@ -60940,6 +60979,19 @@
       "OP": "3670",
       "Operação": "Elaborada",
       "Data": "03/06/2025",
+      "Valor": "25.000,00",
+      "Cod Pessoa": "134343",
+      "Contrato": "004/2023",
+      "Vlr Liquidado": "25.000,00",
+      "Número do Processo": "15901014074",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "RLPF PARTICIPACOES E EMPREENDIMENTOS LTDA",
+      "Usuário": "RNSANTOS"
+    },
+    {
+      "OP": "3670",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
       "Valor": "25.000,00",
       "Cod Pessoa": "134343",
       "Contrato": "004/2023",
@@ -61639,6 +61691,19 @@
       "Usuário": "JRSSILVA"
     },
     {
+      "OP": "3715",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
+      "Valor": "24.660,00",
+      "Cod Pessoa": "131668",
+      "Contrato": "70/2025",
+      "Vlr Liquidado": "24.660,00",
+      "Número do Processo": "15901011406",
+      "Ano Processo": "2024",
+      "Nome Pessoa": "R C ARAUJO",
+      "Usuário": "JRSSILVA"
+    },
+    {
       "OP": "3718",
       "Operação": "Elaborada",
       "Data": "04/06/2025",
@@ -62042,6 +62107,19 @@
       "Usuário": "LSMENDES"
     },
     {
+      "OP": "3743",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
+      "Valor": "388,50",
+      "Cod Pessoa": "135748",
+      "Contrato": "52/2025",
+      "Vlr Liquidado": "388,50",
+      "Número do Processo": "15901015494",
+      "Ano Processo": "2024",
+      "Nome Pessoa": "HOSPITALMED LTDA",
+      "Usuário": "LSMENDES"
+    },
+    {
       "OP": "3745",
       "Operação": "Elaborada",
       "Data": "04/06/2025",
@@ -62263,9 +62341,35 @@
       "Usuário": "ARISILVA"
     },
     {
+      "OP": "3755",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
+      "Valor": "15.480,00",
+      "Cod Pessoa": "138873",
+      "Contrato": "/",
+      "Vlr Liquidado": "15.480,00",
+      "Número do Processo": "15901008463",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "CRECIIL COMERCIO FARMA HOSPITALAR LTDA",
+      "Usuário": "ARISILVA"
+    },
+    {
       "OP": "3765",
       "Operação": "Elaborada",
       "Data": "04/06/2025",
+      "Valor": "53.730,64",
+      "Cod Pessoa": "134150",
+      "Contrato": "/",
+      "Vlr Liquidado": "53.730,64",
+      "Número do Processo": "15901011179",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "IMPLANSYSTEM DISTRIBUIDORA, IMPORTADORA, EXPORTADO",
+      "Usuário": "LSMENDES"
+    },
+    {
+      "OP": "3765",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
       "Valor": "53.730,64",
       "Cod Pessoa": "134150",
       "Contrato": "/",
@@ -62318,6 +62422,19 @@
       "OP": "3771",
       "Operação": "Elaborada",
       "Data": "04/06/2025",
+      "Valor": "2.586,13",
+      "Cod Pessoa": "647",
+      "Contrato": "/",
+      "Vlr Liquidado": "2.586,13",
+      "Número do Processo": "15901017450",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "CLINICA SANTA MARTA LTDA",
+      "Usuário": "VMJPEREIRA"
+    },
+    {
+      "OP": "3771",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
       "Valor": "2.586,13",
       "Cod Pessoa": "647",
       "Contrato": "/",
@@ -62549,9 +62666,35 @@
       "Usuário": "LSMENDES"
     },
     {
+      "OP": "3779",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
+      "Valor": "621.189,74",
+      "Cod Pessoa": "108220",
+      "Contrato": "53/2025",
+      "Vlr Liquidado": "621.189,74",
+      "Número do Processo": "15901015064",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "GRUPO MULTI S.A",
+      "Usuário": "LSMENDES"
+    },
+    {
       "OP": "3783",
       "Operação": "Elaborada",
       "Data": "05/06/2025",
+      "Valor": "26.520,00",
+      "Cod Pessoa": "137394",
+      "Contrato": "78/2025",
+      "Vlr Liquidado": "26.520,00",
+      "Número do Processo": "15901013153",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "RS MED LTDA",
+      "Usuário": "LSMENDES"
+    },
+    {
+      "OP": "3783",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
       "Valor": "26.520,00",
       "Cod Pessoa": "137394",
       "Contrato": "78/2025",
@@ -62575,9 +62718,35 @@
       "Usuário": "ARISILVA"
     },
     {
+      "OP": "3787",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
+      "Valor": "20.314,80",
+      "Cod Pessoa": "131530",
+      "Contrato": "44/2025",
+      "Vlr Liquidado": "20.314,80",
+      "Número do Processo": "15901012937",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "GM DISTRIBUIDORA DE PRODUTOS PARA SAÚDE LTDA",
+      "Usuário": "ARISILVA"
+    },
+    {
       "OP": "3788",
       "Operação": "Elaborada",
       "Data": "05/06/2025",
+      "Valor": "26.616,00",
+      "Cod Pessoa": "3164",
+      "Contrato": "/",
+      "Vlr Liquidado": "26.616,00",
+      "Número do Processo": "15901006538",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "BRASIL PHARMA HOSPITALAR LTDA",
+      "Usuário": "ARISILVA"
+    },
+    {
+      "OP": "3788",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
       "Valor": "26.616,00",
       "Cod Pessoa": "3164",
       "Contrato": "/",
@@ -62627,9 +62796,35 @@
       "Usuário": "LSMENDES"
     },
     {
+      "OP": "3797",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
+      "Valor": "3.720,00",
+      "Cod Pessoa": "136833",
+      "Contrato": "8/2025",
+      "Vlr Liquidado": "3.720,00",
+      "Número do Processo": "15901012884",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "OK BIOTECH COMERCIO E DISTRIBUICAO DE MATERIAIS OD",
+      "Usuário": "LSMENDES"
+    },
+    {
       "OP": "3800",
       "Operação": "Elaborada",
       "Data": "05/06/2025",
+      "Valor": "337,80",
+      "Cod Pessoa": "134384",
+      "Contrato": "46/2025",
+      "Vlr Liquidado": "337,80",
+      "Número do Processo": "15901011555",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "UNNI MEDICAL LTDA",
+      "Usuário": "JRSSILVA"
+    },
+    {
+      "OP": "3800",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
       "Valor": "337,80",
       "Cod Pessoa": "134384",
       "Contrato": "46/2025",
@@ -62653,9 +62848,35 @@
       "Usuário": "LSMENDES"
     },
     {
+      "OP": "3802",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
+      "Valor": "3.760,00",
+      "Cod Pessoa": "134351",
+      "Contrato": "/",
+      "Vlr Liquidado": "3.760,00",
+      "Número do Processo": "15901014846",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "GERAIS EMPREENDIMENTOS HOSPITALARES LTDA",
+      "Usuário": "LSMENDES"
+    },
+    {
       "OP": "3803",
       "Operação": "Elaborada",
       "Data": "05/06/2025",
+      "Valor": "58.968,00",
+      "Cod Pessoa": "127956",
+      "Contrato": "101/2025",
+      "Vlr Liquidado": "58.968,00",
+      "Número do Processo": "15901014616",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "IMPACTO PRODUTOS MEDICOS E HOSP. LTDA",
+      "Usuário": "JRSSILVA"
+    },
+    {
+      "OP": "3803",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
       "Valor": "58.968,00",
       "Cod Pessoa": "127956",
       "Contrato": "101/2025",
@@ -62731,9 +62952,35 @@
       "Usuário": "JRSSILVA"
     },
     {
+      "OP": "3808",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
+      "Valor": "14.700,00",
+      "Cod Pessoa": "103515",
+      "Contrato": "/",
+      "Vlr Liquidado": "14.700,00",
+      "Número do Processo": "15901008608",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "ROYALMED HOSPITALAR LTDA",
+      "Usuário": "JRSSILVA"
+    },
+    {
       "OP": "3812",
       "Operação": "Elaborada",
       "Data": "05/06/2025",
+      "Valor": "1.934,64",
+      "Cod Pessoa": "136910",
+      "Contrato": "5/2025",
+      "Vlr Liquidado": "1.934,64",
+      "Número do Processo": "15901008452",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "ANJOMEDI DISTRIBUIDORA DE MEDICAMENTOS LTDA",
+      "Usuário": "LSMENDES"
+    },
+    {
+      "OP": "3812",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
       "Valor": "1.934,64",
       "Cod Pessoa": "136910",
       "Contrato": "5/2025",
@@ -62809,9 +63056,35 @@
       "Usuário": "RNSANTOS"
     },
     {
+      "OP": "3814",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
+      "Valor": "4.135,56",
+      "Cod Pessoa": "129444",
+      "Contrato": "300/2018",
+      "Vlr Liquidado": "4.135,56",
+      "Número do Processo": "15901013609",
+      "Ano Processo": "2024",
+      "Nome Pessoa": "LIANA MARA AMARAL FEITOSA",
+      "Usuário": "RNSANTOS"
+    },
+    {
       "OP": "3816",
       "Operação": "Elaborada",
       "Data": "05/06/2025",
+      "Valor": "19.275,20",
+      "Cod Pessoa": "128196",
+      "Contrato": "29/2025",
+      "Vlr Liquidado": "19.275,20",
+      "Número do Processo": "15901012135",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "EREFARMA PRODUTOS PARA SAÚDE EIRELI",
+      "Usuário": "ARISILVA"
+    },
+    {
+      "OP": "3816",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
       "Valor": "19.275,20",
       "Cod Pessoa": "128196",
       "Contrato": "29/2025",
@@ -62835,9 +63108,35 @@
       "Usuário": "RNSANTOS"
     },
     {
+      "OP": "3818",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
+      "Valor": "15.000,00",
+      "Cod Pessoa": "137380",
+      "Contrato": "177/2024",
+      "Vlr Liquidado": "15.000,00",
+      "Número do Processo": "15901012969",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "IGOR ADRIANO TRINTA MARQUES",
+      "Usuário": "RNSANTOS"
+    },
+    {
       "OP": "3820",
       "Operação": "Elaborada",
       "Data": "05/06/2025",
+      "Valor": "137.938,12",
+      "Cod Pessoa": "809",
+      "Contrato": "539/2024",
+      "Vlr Liquidado": "137.938,12",
+      "Número do Processo": "15901015599",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "BRITO & SOARES LTDA",
+      "Usuário": "ARISILVA"
+    },
+    {
+      "OP": "3820",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
       "Valor": "137.938,12",
       "Cod Pessoa": "809",
       "Contrato": "539/2024",
@@ -62861,9 +63160,35 @@
       "Usuário": "ARISILVA"
     },
     {
+      "OP": "3821",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
+      "Valor": "14.505,38",
+      "Cod Pessoa": "809",
+      "Contrato": "539/2024",
+      "Vlr Liquidado": "14.505,38",
+      "Número do Processo": "15901015599",
+      "Ano Processo": "2024",
+      "Nome Pessoa": "BRITO & SOARES LTDA",
+      "Usuário": "ARISILVA"
+    },
+    {
       "OP": "3824",
       "Operação": "Elaborada",
       "Data": "05/06/2025",
+      "Valor": "19.460,00",
+      "Cod Pessoa": "134604",
+      "Contrato": "/",
+      "Vlr Liquidado": "19.460,00",
+      "Número do Processo": "15901007430",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "MEDSHALOM LTDA",
+      "Usuário": "JRSSILVA"
+    },
+    {
+      "OP": "3824",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
       "Valor": "19.460,00",
       "Cod Pessoa": "134604",
       "Contrato": "/",
@@ -62900,9 +63225,35 @@
       "Usuário": "JRSSILVA"
     },
     {
+      "OP": "3826",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
+      "Valor": "9.526,00",
+      "Cod Pessoa": "130619",
+      "Contrato": "/",
+      "Vlr Liquidado": "9.526,00",
+      "Número do Processo": "15901006532",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "ALVIVERE SOLUÇÕES FARMACEUTICAS LTDA",
+      "Usuário": "JRSSILVA"
+    },
+    {
       "OP": "3828",
       "Operação": "Elaborada",
       "Data": "06/06/2025",
+      "Valor": "68.900,00",
+      "Cod Pessoa": "137677",
+      "Contrato": "61/2025",
+      "Vlr Liquidado": "68.900,00",
+      "Número do Processo": "15901016142",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "HYPOFARMA INSTITUTO DE HYPODERMIA E FARMACIA LTDA",
+      "Usuário": "LSMENDES"
+    },
+    {
+      "OP": "3828",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
       "Valor": "68.900,00",
       "Cod Pessoa": "137677",
       "Contrato": "61/2025",
@@ -62939,9 +63290,35 @@
       "Usuário": "RNSANTOS"
     },
     {
+      "OP": "3831",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
+      "Valor": "2.237,00",
+      "Cod Pessoa": "104711",
+      "Contrato": "invalido /1900",
+      "Vlr Liquidado": "2.237,00",
+      "Número do Processo": "15901011789",
+      "Ano Processo": "2024",
+      "Nome Pessoa": "VALDINEIA RIBEIRO LOPES CARNEIRO",
+      "Usuário": "RNSANTOS"
+    },
+    {
       "OP": "3832",
       "Operação": "Elaborada",
       "Data": "06/06/2025",
+      "Valor": "22,28",
+      "Cod Pessoa": "104711",
+      "Contrato": "344/2020",
+      "Vlr Liquidado": "22,28",
+      "Número do Processo": "15901011789",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "VALDINEIA RIBEIRO LOPES CARNEIRO",
+      "Usuário": "RNSANTOS"
+    },
+    {
+      "OP": "3832",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
       "Valor": "22,28",
       "Cod Pessoa": "104711",
       "Contrato": "344/2020",
@@ -62978,6 +63355,19 @@
       "Usuário": "RNSANTOS"
     },
     {
+      "OP": "3835",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
+      "Valor": "78.854,75",
+      "Cod Pessoa": "4912",
+      "Contrato": "/",
+      "Vlr Liquidado": "78.854,75",
+      "Número do Processo": "15901007184",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "LABORATÓRIO CEDRO LTDA",
+      "Usuário": "RNSANTOS"
+    },
+    {
       "OP": "3844",
       "Operação": "Elaborada",
       "Data": "06/06/2025",
@@ -62991,9 +63381,35 @@
       "Usuário": "LSMENDES"
     },
     {
+      "OP": "3844",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
+      "Valor": "71.066,42",
+      "Cod Pessoa": "107601",
+      "Contrato": "19/2025",
+      "Vlr Liquidado": "71.066,42",
+      "Número do Processo": "15901017643",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "PRIME CONSULTORIA TREINAMENTOS E SERVICOS LTDA",
+      "Usuário": "LSMENDES"
+    },
+    {
       "OP": "3845",
       "Operação": "Elaborada",
       "Data": "06/06/2025",
+      "Valor": "3.597,76",
+      "Cod Pessoa": "107601",
+      "Contrato": "19/2025",
+      "Vlr Liquidado": "3.597,76",
+      "Número do Processo": "15901017643",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "PRIME CONSULTORIA TREINAMENTOS E SERVICOS LTDA",
+      "Usuário": "LSMENDES"
+    },
+    {
+      "OP": "3845",
+      "Operação": "Homologada",
+      "Data": "09/06/2025",
       "Valor": "3.597,76",
       "Cod Pessoa": "107601",
       "Contrato": "19/2025",
@@ -63236,6 +63652,188 @@
       "Ano Processo": "2025",
       "Nome Pessoa": "T C DIAGNOSTICO POR IMAGEM LTDA",
       "Usuário": "JRSSILVA"
+    },
+    {
+      "OP": "3892",
+      "Operação": "Elaborada",
+      "Data": "09/06/2025",
+      "Valor": "486.185,22",
+      "Cod Pessoa": "135610",
+      "Contrato": "/",
+      "Vlr Liquidado": "486.185,22",
+      "Número do Processo": "15901011518",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "HYPERFARMA DISTRIBUICAO E SERVICOS LTDA",
+      "Usuário": "ARISILVA"
+    },
+    {
+      "OP": "3893",
+      "Operação": "Elaborada",
+      "Data": "09/06/2025",
+      "Valor": "8.000,00",
+      "Cod Pessoa": "4025",
+      "Contrato": "256/2021",
+      "Vlr Liquidado": "8.000,00",
+      "Número do Processo": "15901014600",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "LAVAMATIC ADMINISTRAÇÃO E PARTICIPAÇÕES S/A",
+      "Usuário": "RNSANTOS"
+    },
+    {
+      "OP": "3894",
+      "Operação": "Elaborada",
+      "Data": "09/06/2025",
+      "Valor": "525.119,92",
+      "Cod Pessoa": "130199",
+      "Contrato": "22971/2023",
+      "Vlr Liquidado": "525.119,92",
+      "Número do Processo": "15901016858",
+      "Ano Processo": "2024",
+      "Nome Pessoa": "OFTALMO DAY CLINIC LTDA",
+      "Usuário": "VMJPEREIRA"
+    },
+    {
+      "OP": "3900",
+      "Operação": "Elaborada",
+      "Data": "09/06/2025",
+      "Valor": "8.237,50",
+      "Cod Pessoa": "129388",
+      "Contrato": "inválido/1900",
+      "Vlr Liquidado": "8.237,50",
+      "Número do Processo": "15901014129",
+      "Ano Processo": "2024",
+      "Nome Pessoa": "OKTO COMERCIO E SER VICOS EIRELI",
+      "Usuário": "ARISILVA"
+    },
+    {
+      "OP": "3901",
+      "Operação": "Elaborada",
+      "Data": "09/06/2025",
+      "Valor": "316.420,00",
+      "Cod Pessoa": "4567",
+      "Contrato": "17/2025",
+      "Vlr Liquidado": "316.420,00",
+      "Número do Processo": "15901014640",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "ESSE ENE COMERCIO E SERVICOS LTDA",
+      "Usuário": "LSMENDES"
+    },
+    {
+      "OP": "3904",
+      "Operação": "Elaborada",
+      "Data": "09/06/2025",
+      "Valor": "632.528,94",
+      "Cod Pessoa": "5574",
+      "Contrato": "218/2019",
+      "Vlr Liquidado": "632.528,94",
+      "Número do Processo": "15901016829",
+      "Ano Processo": "2024",
+      "Nome Pessoa": "CLÍNICA DE RIM E HIPERTENSÃO ARTERIAL LTDA",
+      "Usuário": "VMJPEREIRA"
+    },
+    {
+      "OP": "3907",
+      "Operação": "Elaborada",
+      "Data": "09/06/2025",
+      "Valor": "5.000,00",
+      "Cod Pessoa": "136008",
+      "Contrato": "553/2024",
+      "Vlr Liquidado": "5.000,00",
+      "Número do Processo": "15901013227",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "JAIRES DA HORA SIMAS AZEVEDO",
+      "Usuário": "RNSANTOS"
+    },
+    {
+      "OP": "3909",
+      "Operação": "Elaborada",
+      "Data": "09/06/2025",
+      "Valor": "2.238,33",
+      "Cod Pessoa": "137815",
+      "Contrato": "529/2024",
+      "Vlr Liquidado": "2.238,33",
+      "Número do Processo": "15901011304",
+      "Ano Processo": "2024",
+      "Nome Pessoa": "PURGARE ENGENHARIA AMBIENTAL LTDA",
+      "Usuário": "ARISILVA"
+    },
+    {
+      "OP": "3911",
+      "Operação": "Elaborada",
+      "Data": "09/06/2025",
+      "Valor": "120.000,00",
+      "Cod Pessoa": "3504",
+      "Contrato": "161/2024",
+      "Vlr Liquidado": "120.000,00",
+      "Número do Processo": "15901015415",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "CENTRO DE NEFROLOGIA DO MARANHÃO LTDA",
+      "Usuário": "LSMENDES"
+    },
+    {
+      "OP": "3914",
+      "Operação": "Elaborada",
+      "Data": "09/06/2025",
+      "Valor": "8.921,10",
+      "Cod Pessoa": "136757",
+      "Contrato": "393/2024",
+      "Vlr Liquidado": "8.921,10",
+      "Número do Processo": "15901001918",
+      "Ano Processo": "2024",
+      "Nome Pessoa": "ABSOLUTA SAUDE IMP. EXP. E COMERCIO DE PRODUTOS PA",
+      "Usuário": "LSMENDES"
+    },
+    {
+      "OP": "3916",
+      "Operação": "Elaborada",
+      "Data": "09/06/2025",
+      "Valor": "10.892,00",
+      "Cod Pessoa": "136757",
+      "Contrato": "393/2024",
+      "Vlr Liquidado": "10.892,00",
+      "Número do Processo": "15901003888",
+      "Ano Processo": "2024",
+      "Nome Pessoa": "ABSOLUTA SAUDE IMP. EXP. E COMERCIO DE PRODUTOS PA",
+      "Usuário": "LSMENDES"
+    },
+    {
+      "OP": "3919",
+      "Operação": "Elaborada",
+      "Data": "09/06/2025",
+      "Valor": "13.716,00",
+      "Cod Pessoa": "137871",
+      "Contrato": "740/2024",
+      "Vlr Liquidado": "13.716,00",
+      "Número do Processo": "15901014803",
+      "Ano Processo": "2024",
+      "Nome Pessoa": "TRANSAGUA AMBIENTAL E TRANSPORTES LTDA",
+      "Usuário": "ARISILVA"
+    },
+    {
+      "OP": "3920",
+      "Operação": "Elaborada",
+      "Data": "09/06/2025",
+      "Valor": "3.048,00",
+      "Cod Pessoa": "137871",
+      "Contrato": "740/2024",
+      "Vlr Liquidado": "3.048,00",
+      "Número do Processo": "15901014803",
+      "Ano Processo": "2024",
+      "Nome Pessoa": "TRANSAGUA AMBIENTAL E TRANSPORTES LTDA",
+      "Usuário": "ARISILVA"
+    },
+    {
+      "OP": "3922",
+      "Operação": "Elaborada",
+      "Data": "09/06/2025",
+      "Valor": "15.480,00",
+      "Cod Pessoa": "138873",
+      "Contrato": "/",
+      "Vlr Liquidado": "15.480,00",
+      "Número do Processo": "15901007093",
+      "Ano Processo": "2025",
+      "Nome Pessoa": "CRECIIL COMERCIO FARMA HOSPITALAR LTDA",
+      "Usuário": "RNSANTOS"
     }
   ]
 }
